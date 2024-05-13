@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+.container-fluid,
+.my-nav,
+.navbar {
+  background-color: #1e1e1e !important;
+  margin-block: 0 !important;
+  padding-block: 0 !important;
+}
+.my-nav {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+.nav-link {
+  color: white !important;
+  cursor: pointer;
+}
+.navbar-toggler-icon {
+  background-image: url(../assets/logos/menu.png) !important;
+}
+.navbar-nav {
+  position: absolute !important;
+  right: 0;
+  padding-right: 30px;
+}
+.nav-link {
+  margin-left: 10px;
+  font-size: 18px !important;
+}
+.nav-link:hover {
+  color: var(--redColor) !important;
+}
+.navbar-brand {
+  position: relative;
+  color: rgba(0, 0, 0, 0.475) !important;
+  letter-spacing: 2px;
+  font-size: 40px !important;
+  font-style: italic;
+  font-weight: bold;
+}
+.navbar-brand::before {
+  margin-top: 5px;
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--redColor);
+  overflow: hidden;
+  width: 100%;
+  animation: load 3s linear;
+  letter-spacing: 2px;
+  font-size: 40px !important;
+  font-style: italic;
+  font-weight: bold;
+}
+@keyframes load {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .nav-link {
+    text-align: right;
+  }
+  .navbar-nav {
+    position: relative !important;
+    padding-right: 15px;
+  }
+}
+.hover-effect {
+  cursor: pointer;
+}
+.hover-effect:hover span {
+  color: #e50914;
+}
+.hover-effect span {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover-effect span:nth-child(1) {
+  animation: move1 1s linear reverse;
+}
+
+.hover-effect span:nth-child(2) {
+  animation: move2 1s linear reverse;
+}
+
+.hover-effect span:nth-child(3) {
+  animation: move3 1s linear reverse;
+}
+
+.hover-effect span:nth-child(4) {
+  animation: move4 1s linear reverse;
+}
+
+.hover-effect span:nth-child(5) {
+  animation: move5 1s linear reverse;
+}
+
+@keyframes move1 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(80px);
+  }
+}
+
+@keyframes move2 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(64px);
+  }
+}
+
+@keyframes move3 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(48px);
+  }
+}
+
+@keyframes move4 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(32px);
+  }
+}
+
+@keyframes move5 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(16px);
+  }
+}
