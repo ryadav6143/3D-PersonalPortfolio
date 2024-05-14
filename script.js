@@ -10,8 +10,8 @@ function animateOnPC() {
     scale: 20,
     duration: 2,
     delay: 3,
-    x: 2200,
-    y: 400,
+    x: 1950,
+    y: 500,
   });
   gsap.from(".ribbon", {
     opacity: 0,

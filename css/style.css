@@ -22,11 +22,10 @@ body {
   width: 0;
 }
 .ribbon {
-  display: flex;
   margin-top: 5%;
+  display: flex;
   width: 100%;
   overflow: hidden;
-  white-space: nowrap;
   white-space: nowrap;
 }
 .ribbon p {
@@ -34,7 +33,7 @@ body {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.155);
   font-weight: bold;
-  animation: ribbon 180s linear infinite alternate;
+  animation: ribbon 250s linear infinite alternate;
   letter-spacing: 2px;
   animation-delay: 5.5s;
 }
@@ -60,7 +59,7 @@ body {
   width: 100%;
 }
 .about {
-  max-width: 1440px;
+  /* max-width: 1440px; */
   margin: auto;
   position: relative;
   display: flex;
@@ -100,13 +99,12 @@ body {
   margin-bottom: 5%;
   text-align: center;
 }
-.contact p {
+.contact span {
   font-size: 128px;
   font-weight: bold;
   font-family: "Times New Roman", Times, serif;
 }
 .my-work {
-  max-width: 1440px;
   margin: auto;
 
   text-align: end;
@@ -133,13 +131,7 @@ body {
 .work:hover .work-ribbon {
   display: block;
 }
-.work-ribbon {
-  display: none;
-  position: absolute;
-}
-.mail {
-  /* margin-top: -50px; */
-}
+
 .mail p {
   font-size: 40px;
   letter-spacing: 2px;
@@ -148,10 +140,49 @@ body {
   max-width: fit-content;
   margin: auto;
   padding: 20px;
+  width: 100%;
+  height: 100%;
 }
 .signature img {
   width: 100%;
   height: 100%;
+}
+.contact {
+  margin-top: -5%;
+}
+/* --------------------------------------------- */
+.contact-sign {
+  width: 50vw;
+  aspect-ratio: 1000 / 340;
+}
+.contact-sign .signature {
+  width: 50vw;
+  position: absolute;
+  aspect-ratio: 1000 / 340;
+  top: 0;
+}
+.work-ribbon img {
+  width: 100%;
+  height: 100px;
+}
+.work-ribbon {
+  display: none;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  white-space: nowrap;
+}
+.work-ribbon-a {
+  top: 300px;
+}
+.work-ribbon-b {
+  top: 250px;
+}
+.work-ribbon-c {
+  top: -150px;
+}
+.work-ribbon-d {
+  top: -250px;
 }
 @media screen and (max-width: 767px) {
   .modal-img {
@@ -177,7 +208,7 @@ body {
   .mail p {
     font-size: 20px;
   }
-  .contact p {
+  .contact span {
     font-size: 30px;
   }
   .work-headings p,
