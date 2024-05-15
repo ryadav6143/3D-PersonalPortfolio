@@ -2,6 +2,7 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
@@ -23,6 +24,8 @@ body {
 }
 .ribbon {
   margin-top: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
   overflow: hidden;
@@ -33,15 +36,29 @@ body {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.155);
   font-weight: bold;
+  -webkit-animation: ribbon 250s linear infinite alternate;
   animation: ribbon 250s linear infinite alternate;
   letter-spacing: 2px;
+  -webkit-animation-delay: 5.5s;
   animation-delay: 5.5s;
 }
-@keyframes ribbon {
+@-webkit-keyframes ribbon {
   0% {
+    -webkit-transform: translateX(0%);
     transform: translateX(0%);
   }
   100% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+@keyframes ribbon {
+  0% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
   }
 }
@@ -55,6 +72,8 @@ body {
   width: auto;
 }
 .about-me {
+  max-width: 1440px;
+  margin: auto;
   margin-top: 3%;
   width: 100%;
 }
@@ -62,8 +81,13 @@ body {
   /* max-width: 1440px; */
   margin: auto;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 .left-heading p,
@@ -88,10 +112,15 @@ body {
   display: block;
 }
 .left-heading {
+  -webkit-transition: -webkit-filter 0.3s ease-in;
+  transition: -webkit-filter 0.3s ease-in;
+  -o-transition: filter 0.3s ease-in;
   transition: filter 0.3s ease-in;
+  transition: filter 0.3s ease-in, -webkit-filter 0.3s ease-in;
 }
 
 .left-heading:hover {
+  -webkit-filter: blur(20px);
   filter: blur(20px);
 }
 .wrapper-contact {
@@ -99,7 +128,7 @@ body {
   margin-bottom: 5%;
   text-align: center;
 }
-.contact span {
+.contact p {
   font-size: 128px;
   font-weight: bold;
   font-family: "Times New Roman", Times, serif;
@@ -117,11 +146,17 @@ body {
   line-height: 1;
 }
 .work-heading {
+  -webkit-filter: blur(0);
   filter: blur(0);
+  -webkit-transition: -webkit-filter 0.3s ease;
+  transition: -webkit-filter 0.3s ease;
+  -o-transition: filter 0.3s ease;
   transition: filter 0.3s ease;
+  transition: filter 0.3s ease, -webkit-filter 0.3s ease;
 }
 
 .work-heading:hover {
+  -webkit-filter: blur(20px);
   filter: blur(20px);
 }
 
@@ -137,6 +172,8 @@ body {
   letter-spacing: 2px;
 }
 .signature {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
   max-width: fit-content;
   margin: auto;
   padding: 20px;
@@ -168,9 +205,12 @@ body {
 .work-ribbon {
   display: none;
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
   white-space: nowrap;
+  animation: wave 2s ease-in-out infinite;
 }
 .work-ribbon-a {
   top: 300px;
@@ -208,11 +248,20 @@ body {
   .mail p {
     font-size: 20px;
   }
-  .contact span {
+  .contact p {
     font-size: 30px;
   }
   .work-headings p,
   .work-heading p {
     font-size: 50px;
+  }
+}
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
   }
 }
