@@ -7,10 +7,10 @@ function animateOnPC() {
   });
   gsap.from(".navbar-brand", {
     opacity: 1,
-    scale: 20,
+    scale: 23,
     duration: 2,
     delay: 3,
-    x: 1950,
+    x: 1940,
     y: 500,
   });
   gsap.from(".ribbon", {
@@ -25,19 +25,18 @@ function animateOnPC() {
     duration: 1,
     delay: 4.5,
   });
-
   gsap.registerPlugin(ScrollTrigger);
 
   const animateRows = (element) => {
     gsap.from(element, {
       opacity: 0,
-      y: 50,
-      duration: 2,
+      y: 80,
+      duration: 0.5,
       delay: 0.5,
       scrollTrigger: {
         trigger: element,
-        start: "bottom bottom-=-50px",
-        // toggleActions: "play none none reverse",
+        start: "bottom bottom-=-40px",
+        toggleActions: "play none none reverse",
       },
     });
   };
@@ -51,13 +50,13 @@ function animateOnPC() {
   const animateContact = (element) => {
     gsap.from(element, {
       opacity: 0,
-      y: 50,
-      duration: 2,
+      y: 80,
+      duration: 0.5,
 
       scrollTrigger: {
         trigger: element,
         start: "bottom bottom-=-10px",
-        // toggleActions: "play none none reverse",
+        toggleActions: "play none none reverse",
       },
     });
   };
@@ -67,6 +66,63 @@ function animateOnPC() {
   animateContact(".work-row-2");
   animateContact(".work-row-3");
   animateContact(".work-row-4");
+  gsap.from(".skill-1", {
+    opacity: 0,
+    x: 0,
+    duration: 0.5,
+    delay: 0.5,
+    scrollTrigger: {
+      trigger: ".skill-1",
+      start: "bottom bottom-=30px",
+    },
+  });
+  gsap.from(".skill-2", {
+    opacity: 0,
+    x: -100,
+    duration: 0.5,
+    delay: 0.5,
+    scrollTrigger: {
+      trigger: ".skill-2",
+      start: "bottom bottom-=30px",
+    },
+  });
+  gsap.from(".skill-3", {
+    opacity: 0,
+    x: -200,
+    duration: 0.5,
+    delay: 1,
+    scrollTrigger: {
+      trigger: ".skill-3",
+      start: "bottom bottom-=30px",
+    },
+  });
+  gsap.from(".skill-4", {
+    opacity: 0,
+    x: -200,
+    duration: 0.5,
+    delay: 1.5,
+    scrollTrigger: {
+      trigger: ".skill-4",
+      start: "bottom bottom-=30px",
+    },
+  });
+
+  const animateSkillsRow2 = (element, timedelay) => {
+    gsap.from(element, {
+      opacity: 0,
+      y: -150,
+      duration: 0.5,
+      delay: timedelay,
+      scrollTrigger: {
+        trigger: ".skill-8",
+        start: "bottom bottom-=30px",
+      },
+    });
+  };
+  animateSkillsRow2(".skill-5", "2");
+  animateSkillsRow2(".skill-6", "2.5");
+  animateSkillsRow2(".skill-7", "3");
+  animateSkillsRow2(".skill-8", "3.5");
 }
 
 if (window.matchMedia("(min-width: 1024px)").matches) {
@@ -76,171 +132,52 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
 //--------------------------------------------------------
 
 let hoverInProgress = false;
+let words = [
+  ["A", "B", "O", "U", "T"],
+  ["W", "O", "R", "K", "S"],
+  ["S", "E", "R", "V", "I", "C", "E", "S"],
+  ["C", "O", "N", "T", "A", "C", "T"],
+  ["I", "N", "S", "T", "A", "G", "R", "A", "M"],
+  ["L", "I", "N", "K", "E", "D", "I", "N"],
+  ["T", "E", "L", "E", "G", "R", "A", "M"],
+];
 
-function rearrangeLetters() {
+function rearrangeLetters(element) {
   if (!hoverInProgress) {
-    const container = document.querySelector(".hover-effect");
-    const spans = container.querySelectorAll("span");
-    const letters = ["A", "B", "O", "U", "T"];
-    let delay = 60; // Adjust this value to change the speed (in milliseconds)
+    const spans = element.querySelectorAll("span");
+    const index = Array.from(
+      document.querySelectorAll(".hover-effect")
+    ).indexOf(element);
+
     hoverInProgress = true;
-    for (let i = 0; i < spans.length; i++) {
+
+    for (let i = 0; i < words[index].length; i++) {
       setTimeout(() => {
-        spans[i].textContent = letters[(i + 1) % 5];
-      }, delay * i);
+        rotateLetters(spans, words[index]);
+      }, 70 * i);
     }
+
     setTimeout(() => {
-      for (let i = 0; i < spans.length; i++) {
-        spans[i].textContent = letters[i];
-      }
+      resetLetters(spans, words[index]);
       hoverInProgress = false;
-    }, delay * spans.length);
-  }
-}
-function rearrangeWork() {
-  if (!hoverInProgress) {
-    const container = document.querySelector(".hover-work");
-    const spans = container.querySelectorAll("span");
-    const letters = ["W", "O", "R", "K", "S"];
-    let delay = 80;
-    hoverInProgress = true;
-    for (let i = 0; i < spans.length; i++) {
-      setTimeout(() => {
-        spans[i].textContent = letters[(i + 1) % 5];
-      }, delay * i);
-    }
-    setTimeout(() => {
-      for (let i = 0; i < spans.length; i++) {
-        spans[i].textContent = letters[i];
-      }
-      hoverInProgress = false;
-    }, delay * spans.length);
-  }
-}
-function rearrangeServices() {
-  if (!hoverInProgress) {
-    const container = document.querySelector(".hover-services");
-    const spans = container.querySelectorAll("span");
-    const letters = ["S", "E", "R", "V", "I", "C", "E", "S"];
-    let delay = 80;
-    hoverInProgress = true;
-    for (let i = 0; i < spans.length; i++) {
-      setTimeout(() => {
-        spans[i].textContent = letters[(i + 1) % 5];
-      }, delay * i);
-    }
-    setTimeout(() => {
-      for (let i = 0; i < spans.length; i++) {
-        spans[i].textContent = letters[i];
-      }
-      hoverInProgress = false;
-    }, delay * spans.length);
-  }
-}
-function rearrangeContact() {
-  if (!hoverInProgress) {
-    const container = document.querySelector(".hover-contact");
-    const spans = container.querySelectorAll("span");
-    const letters = ["C", "O", "N", "T", "A", "C", "T"];
-    let delay = 80;
-    hoverInProgress = true;
-    for (let i = 0; i < spans.length; i++) {
-      setTimeout(() => {
-        spans[i].textContent = letters[(i + 1) % 5];
-      }, delay * i);
-    }
-    setTimeout(() => {
-      for (let i = 0; i < spans.length; i++) {
-        spans[i].textContent = letters[i];
-      }
-      hoverInProgress = false;
-    }, delay * spans.length);
+    }, 70 * words[index].length);
   }
 }
 
-function rearrangeTwitter() {
-  if (!hoverInProgress) {
-    const container = document.querySelector(".hover-twitter");
-    const spans = container.querySelectorAll("span");
-    const letters = ["T", "W", "I", "T", "T", "E", "R"];
-    let delay = 60;
-    hoverInProgress = true;
-    for (let i = 0; i < spans.length; i++) {
-      setTimeout(() => {
-        spans[i].textContent = letters[(i + 1) % 5];
-      }, delay * i);
-    }
-    setTimeout(() => {
-      for (let i = 0; i < spans.length; i++) {
-        spans[i].textContent = letters[i];
-      }
-      hoverInProgress = false;
-    }, delay * spans.length);
+function rotateLetters(spans, word) {
+  let temp = word[word.length - 1];
+  for (let i = word.length - 1; i > 0; i--) {
+    word[i] = word[i - 1];
+    spans[i].textContent = word[i];
   }
+  word[0] = temp;
+  spans[0].textContent = temp;
 }
 
-function rearrangeInstagram() {
-  if (!hoverInProgress) {
-    const container = document.querySelector(".hover-insta");
-    const spans = container.querySelectorAll("span");
-    const letters = ["I", "N", "S", "T", "A", "G", "R", "A", "M"];
-    let delay = 60;
-    hoverInProgress = true;
-    for (let i = 0; i < spans.length; i++) {
-      setTimeout(() => {
-        spans[i].textContent = letters[(i + 1) % 5];
-      }, delay * i);
-    }
-    setTimeout(() => {
-      for (let i = 0; i < spans.length; i++) {
-        spans[i].textContent = letters[i];
-      }
-      hoverInProgress = false;
-    }, delay * spans.length);
+function resetLetters(spans, word) {
+  for (let i = 0; i < spans.length; i++) {
+    spans[i].textContent = word[i];
   }
-}
-function rearrangeLinkedin() {
-  if (!hoverInProgress) {
-    const container = document.querySelector(".hover-linkedin");
-    const spans = container.querySelectorAll("span");
-    const letters = ["L", "I", "N", "K", "E", "D", "I", "N"];
-    let delay = 60;
-    hoverInProgress = true;
-    for (let i = 0; i < spans.length; i++) {
-      setTimeout(() => {
-        spans[i].textContent = letters[(i + 1) % 5];
-      }, delay * i);
-    }
-    setTimeout(() => {
-      for (let i = 0; i < spans.length; i++) {
-        spans[i].textContent = letters[i];
-      }
-      hoverInProgress = false;
-    }, delay * spans.length);
-  }
-}
-function rearrangeTelegram() {
-  if (!hoverInProgress) {
-    const container = document.querySelector(".hover-telegram");
-    const spans = container.querySelectorAll("span");
-    const letters = ["T", "E", "L", "E", "G", "R", "A", "M"];
-    let delay = 60;
-    hoverInProgress = true;
-    for (let i = 0; i < spans.length; i++) {
-      setTimeout(() => {
-        spans[i].textContent = letters[(i + 1) % 5];
-      }, delay * i);
-    }
-    setTimeout(() => {
-      for (let i = 0; i < spans.length; i++) {
-        spans[i].textContent = letters[i];
-      }
-      hoverInProgress = false;
-    }, delay * spans.length);
-  }
-}
-function resetLetters() {
-  hoverInProgress = false;
 }
 
 const leftHeadings = document.querySelectorAll(".left-heading");

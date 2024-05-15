@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shivam Gupta</title>
+    <title>Shivam Gupta | Portfolio</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/nav.css" />
     <link rel="stylesheet" href="./css/global.css" />
@@ -42,7 +42,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                    <div class="hover-work" onmouseenter="rearrangeWork(this)"
+                                    <div class="hover-effect" onmouseenter="rearrangeLetters(this)"
                                         onmouseleave="resetLetters()">
                                         <span>W</span>
                                         <span>O</span>
@@ -55,7 +55,7 @@
 
                             <li class="nav-item">
                                 <a class="nav-link">
-                                    <div class="hover-services" onmouseenter="rearrangeServices(this)"
+                                    <div class="hover-effect" onmouseenter="rearrangeLetters(this)"
                                         onmouseleave="resetLetters()">
                                         <span>S</span>
                                         <span>E</span>
@@ -70,7 +70,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link">
-                                    <div class="hover-contact" onmouseenter="rearrangeContact(this)"
+                                    <div class="hover-effect" onmouseenter="rearrangeLetters(this)"
                                         onmouseleave="resetLetters()">
                                         <span>C</span>
                                         <span>O</span>
@@ -88,6 +88,7 @@
             </nav>
         </div>
         <div class="ribbon">
+
             <p>
                 creative developer.creative developer.creative developer.creative
                 developer.creative developer.creative developer.creative
@@ -96,8 +97,10 @@
             </p>
         </div>
         <div class="modal-img">
-            <!-- <img src="./assets/images/man.png" alt="" /> -->
+
             <div id="imageContainer" class="modal-img">
+                <img class="frame-1" src="./assets/logos/frame.png" alt="">
+                <img class="frame-2" src="./assets/logos/frame.png" alt="">
                 <img id="myImage" src="./assets/images/man.png" alt="Man Image" />
 
             </div>
@@ -194,6 +197,44 @@
             </div>
         </div>
     </div>
+    <div class="skills-wrapper">
+        <div class="wrapper-heading">
+            <p>Skills</p>
+        </div>
+        <div class="skills">
+            <div class="skills-row skills-row-1">
+                <div class="skill skill-1">
+                    <img src="./assets/logos/skills/html.png" alt="">
+                </div>
+                <div class="skill skill-2">
+                    <img src="./assets/logos/skills/css.png" alt="">
+                </div>
+                <div class="skill skill-3">
+                    <img src="./assets/logos/skills/js.png" alt="">
+                </div>
+                <div class="skill skill-4">
+                    <img src="./assets/logos/skills/react.png" alt="">
+                </div>
+
+            </div>
+            <div class="skills-row skills-row-2">
+                <div class="skill skill-5">
+                    <img src="./assets/logos/skills/prompt-engineering.png" alt="">
+                </div>
+                <div class="skill skill-6">
+                    <img src="./assets/logos/skills/java.png" alt="">
+                </div>
+                <div class="skill skill-7">
+                    <img src="./assets/logos/skills/spring.png" alt="">
+                </div>
+                <div class="skill skill-8">
+                    <img src="./assets/logos/skills/github.png" alt="">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
     <div class="wrapper-contact">
         <div class="signature">
             <div id="signatureContainer" class="signature-img">
@@ -203,13 +244,12 @@
         </div>
         <div class="contact">
             <p>Let's work together</p>
-
         </div>
         <div class="mail">
             <p>er.shivamsg@gmail.com</p>
         </div>
     </div>
-    <div class="footer">
+    <div class="wrapper-footer footer">
         <div class="time">
             <p>Indian time <br><span>6:35 PM UTC +5:30 </span></p>
 
@@ -231,7 +271,7 @@
             </div> -->
             <div>
                 <a class="social-link" href="https://www.instagram.com/_shiv.am_/" target="_blank">
-                    <div class="hover-insta" onmouseenter=" rearrangeInstagram(this)" onmouseleave="resetLetters()">
+                    <div class="hover-effect" onmouseenter="rearrangeLetters(this)" onmouseleave="resetLetters()">
                         <span>I</span>
                         <span>N</span>
                         <span>S</span>
@@ -248,7 +288,7 @@
             </div>
             <div>
                 <a class="social-link" href="https://www.linkedin.com/in/ershivamsg/" target="_blank">
-                    <div class="hover-linkedin" onmouseenter="rearrangeLinkedin(this)" onmouseleave="resetLetters()">
+                    <div class="hover-effect" onmouseenter="rearrangeLetters(this)" onmouseleave="resetLetters()">
                         <span>L</span>
                         <span>I</span>
                         <span>N</span>
@@ -262,7 +302,7 @@
             </div>
             <div>
                 <a class="social-link" href="https://t.me/erShivuu" target="_blank">
-                    <div class="hover-telegram" onmouseenter="rearrangeTelegram(this)" onmouseleave="resetLetters()">
+                    <div class="hover-effect" onmouseenter="rearrangeLetters(this)" onmouseleave="resetLetters()">
                         <span>T</span>
                         <span>E</span>
                         <span>L</span>
@@ -347,7 +387,7 @@
           }
         `;
 
-        const fragmentShader = `
+        const fragmentShader1 = `
           varying vec2 vUv;
           uniform sampler2D u_texture;    
           uniform vec2 u_mouse;
@@ -355,7 +395,7 @@
           uniform float u_aberrationIntensity;
     
           void main() {
-              vec2 gridUV = floor(vUv * vec2(20.0, 20.0)) / vec2(20.0, 20.0);
+              vec2 gridUV = floor(vUv * vec2(13.0, 13.0)) / vec2(13.0, 13.0);
               vec2 centerOfPixel = gridUV + vec2(1.0/20.0, 1.0/20.0);
               
               vec2 mouseDirection = u_mouse - u_prevMouse;
@@ -367,9 +407,36 @@
               vec2 uvOffset = strength * -mouseDirection * 0.6;
               vec2 uv = vUv - uvOffset;
     
-              vec4 colorR = texture2D(u_texture, uv + vec2(strength * u_aberrationIntensity * 0.0, 0.0));
+              vec4 colorR = texture2D(u_texture, uv + vec2(strength * u_aberrationIntensity * 0.02, 0.0));
               vec4 colorG = texture2D(u_texture, uv);
-              vec4 colorB = texture2D(u_texture, uv - vec2(strength * u_aberrationIntensity * 0.0, 0.0));
+              vec4 colorB = texture2D(u_texture, uv - vec2(strength * u_aberrationIntensity * 0.01, 0.0));
+    
+              gl_FragColor = vec4(colorR.r, colorG.g, colorB.b, texture2D(u_texture, uv).a);
+          }
+        `;
+        const fragmentShader2 = `
+          varying vec2 vUv;
+          uniform sampler2D u_texture;    
+          uniform vec2 u_mouse;
+          uniform vec2 u_prevMouse;
+          uniform float u_aberrationIntensity;
+    
+          void main() {
+              vec2 gridUV = floor(vUv * vec2(13.0, 13.0)) / vec2(13.0, 13.0);
+              vec2 centerOfPixel = gridUV + vec2(1.0/20.0, 1.0/20.0);
+              
+              vec2 mouseDirection = u_mouse - u_prevMouse;
+              
+              vec2 pixelToMouseDirection = centerOfPixel - u_mouse;
+              float pixelDistanceToMouse = length(pixelToMouseDirection);
+              float strength = smoothstep(0.3, 0.0, pixelDistanceToMouse);
+       
+              vec2 uvOffset = strength * -mouseDirection * 0.4;
+              vec2 uv = vUv - uvOffset;
+    
+              vec4 colorR = texture2D(u_texture, uv + vec2(strength * u_aberrationIntensity * 0.00, 0.0));
+              vec4 colorG = texture2D(u_texture, uv);
+              vec4 colorB = texture2D(u_texture, uv - vec2(strength * u_aberrationIntensity * 0.00, 0.0));
     
               gl_FragColor = vec4(colorR.r, colorG.g, colorB.b, texture2D(u_texture, uv).a);
           }
@@ -402,7 +469,7 @@
                 new THREE.ShaderMaterial({
                     uniforms: shaderUniforms,
                     vertexShader,
-                    fragmentShader,
+                    fragmentShader: fragmentShader1,
                     transparent: true
                 })
             );
@@ -452,7 +519,7 @@
                 new THREE.ShaderMaterial({
                     uniforms: shaderUniforms,
                     vertexShader,
-                    fragmentShader,
+                    fragmentShader: fragmentShader2,
                     transparent: true
                 })
             );
@@ -587,6 +654,21 @@
             easeFactor = 0.05;
             targetMousePosition = { ...prevPosition };
         }
+
+
+        function handleGlobalMouseMove(event) {
+            // Calculate the normalized mouse position within the window
+            const mouseX = event.clientX / window.innerWidth;
+            const mouseY = event.clientY / window.innerHeight;
+
+            // Adjust rotation based on mouse position relative to window width
+            planeMesh1.rotation.y = (mouseX - 0.5) * 0.08;
+            planeMesh2.rotation.x = (mouseY - 0.5) * 0.14;
+            planeMesh2.rotation.y = (mouseX - 0.5) * 0.075;
+        }
+
+        // Attach the global mouse move listener to the window
+        window.addEventListener('mousemove', handleGlobalMouseMove);
     </script>
 
 
