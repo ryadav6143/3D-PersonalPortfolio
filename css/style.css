@@ -167,6 +167,7 @@ body {
 .contact p {
   font-size: 128px;
   font-weight: bold;
+  margin-top: -15px;
   font-family: "Times New Roman", Times, serif;
 }
 .my-work {

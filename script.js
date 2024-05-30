@@ -139,7 +139,8 @@ let words = [
   ["C", "O", "N", "T", "A", "C", "T"],
   ["I", "N", "S", "T", "A", "G", "R", "A", "M"],
   ["L", "I", "N", "K", "E", "D", "I", "N"],
-  ["T", "E", "L", "E", "G", "R", "A", "M"],
+  // ["T", "E", "L", "E", "G", "R", "A", "M"],
+  ["G","I","T","H","U","B"]
 ];
 
 function rearrangeLetters(element) {
@@ -212,4 +213,42 @@ document.querySelectorAll(".work-heading").forEach((workHeading) => {
       otherWorkHeading.style.filter = "blur(0)";
     });
   });
+});
+const isDesktop = () => {
+  return window.innerWidth >= 1024;
+};
+
+if (isDesktop()) {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  // Call the scrollToTop function after a short delay on page load
+  window.addEventListener("load", () => {
+    setTimeout(scrollToTop, 100); // Adjust delay as needed (100 milliseconds here)
+  });
+
+  // Function to prevent scrolling for the first 3 seconds after page load
+  const preventScroll = () => {
+    // Disable scrolling by setting overflow to hidden
+    document.body.style.overflow = "hidden";
+
+    // After 3 seconds, enable scrolling by setting overflow back to auto
+    setTimeout(() => {
+      document.body.style.overflow = "auto";
+    }, 3000); // 3000 milliseconds = 3 seconds
+  };
+
+  // Call the preventScroll function when the page is loaded
+  window.addEventListener("load", preventScroll);
+}
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.to("progress", {
+  value: 100,
+  ease: "none",
+  scrollTrigger: { scrub: 0.3 },
 });
